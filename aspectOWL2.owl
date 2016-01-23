@@ -9,9 +9,12 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 Ontology(<http://www.corporate-semantic-web.de/ontologies/aspect/owl>
 
 Declaration(Class(:Aspect))
+Declaration(Class(:Pointcut))
 Declaration(Class(:PossibleWorld))
 Declaration(ObjectProperty(:accessible))
+Declaration(DataProperty(:hasQuery))
 Declaration(AnnotationProperty(:hasAspect))
+Declaration(AnnotationProperty(:hasPointcut))
 ############################
 #   Annotation Properties
 ############################
@@ -19,6 +22,11 @@ Declaration(AnnotationProperty(:hasAspect))
 # Annotation Property: :hasAspect (:hasAspect)
 
 AnnotationPropertyRange(:hasAspect :Aspect)
+
+# Annotation Property: :hasPointcut (:hasPointcut)
+
+AnnotationPropertyRange(:hasPointcut :Pointcut)
+AnnotationPropertyDomain(:hasPointcut <http://www.corporate-semantic-web.de/ontologies/aspect/owl>)
 
 
 ############################
@@ -30,6 +38,16 @@ AnnotationPropertyRange(:hasAspect :Aspect)
 AnnotationAssertion(rdfs:comment :accessible "Subproperties of this property may be created and used to represent accessibility relations between possible worlds. The characteristics of the subproperties determine the underlying modal logic.")
 ObjectPropertyDomain(:accessible :PossibleWorld)
 ObjectPropertyRange(:accessible :PossibleWorld)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :hasQuery (:hasQuery)
+
+DataPropertyDomain(:hasQuery :Pointcut)
+DataPropertyRange(:hasQuery rdfs:Literal)
 
 
 
