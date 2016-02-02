@@ -1,0 +1,105 @@
+Prefix(:=<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245>
+
+Declaration(Class(:Gamble))
+Declaration(Class(:Pay_Taxes))
+Declaration(Class(:World))
+Declaration(Class(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Gamble)>))
+Declaration(Class(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Pay_Taxes)>))
+Declaration(Class(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Gamble)>))
+Declaration(Class(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Pay_Taxes)>))
+Declaration(ObjectProperty(:accessible))
+Declaration(ObjectProperty(:doubleAccessible))
+Declaration(NamedIndividual(:isolatedGamblerWorld))
+Declaration(NamedIndividual(:realWorld))
+Declaration(NamedIndividual(:w1))
+Declaration(NamedIndividual(:w2))
+Declaration(NamedIndividual(:w3))
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :Gamble (:Gamble)
+
+EquivalentClasses(:Gamble ObjectOneOf(:w1))
+
+# Class: :Pay_Taxes (:Pay_Taxes)
+
+EquivalentClasses(:Pay_Taxes ObjectOneOf(:w1 :w2 :w3))
+
+# Class: :World (:World)
+
+EquivalentClasses(Annotation(rdfs:comment "This axiom makes the \"accessible\" object property serial, e.g. ∀w ∃.v with accessible(w,v). We do this in order to obtain a D-model which is a K-modal with a serial frame. A serial accessibilit relation corresponds to the axiom (D) □A→◊A.") :World ObjectSomeValuesFrom(:accessible :World))
+
+# Class: <http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Gamble)> (<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Gamble)>)
+
+EquivalentClasses(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Gamble)> ObjectAllValuesFrom(:accessible :Gamble))
+
+# Class: <http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Pay_Taxes)> (<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Pay_Taxes)>)
+
+EquivalentClasses(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Pay_Taxes)> ObjectAllValuesFrom(:accessible :Pay_Taxes))
+
+# Class: <http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Gamble)> (<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Gamble)>)
+
+EquivalentClasses(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Gamble)> ObjectSomeValuesFrom(:accessible :Gamble))
+
+# Class: <http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Pay_Taxes)> (<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Pay_Taxes)>)
+
+EquivalentClasses(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#P(Pay_Taxes)> ObjectSomeValuesFrom(:accessible :Pay_Taxes))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :isolatedGamblerWorld (:isolatedGamblerWorld)
+
+AnnotationAssertion(rdfs:comment :isolatedGamblerWorld "This world is for demonstrating the (D) axiom.
+
+It is a strange world where gambling is obligatory (we explicitly said so by explicitly making it an instance of O(Gamble)).
+
+There is no explicit accessibility relation to any other world.
+
+However, because of the seriality of the \"acceessible\" property, it is infered that there must exist an accessible world (we don't know WHICH one, we only no that THERE IS one).
+
+Therefore, the \"isolated\" part of the name is most inappropriate!")
+ClassAssertion(:World :isolatedGamblerWorld)
+ClassAssertion(<http://www.corporate-semantic-web.de/ontologies/2016/0/untitled-ontology-245#O(Gamble)> :isolatedGamblerWorld)
+
+# Individual: :realWorld (:realWorld)
+
+ClassAssertion(:World :realWorld)
+ClassAssertion(ObjectAllValuesFrom(:accessible ObjectOneOf(:w1 :w3)) :realWorld)
+ObjectPropertyAssertion(:accessible :realWorld :w1)
+ObjectPropertyAssertion(:accessible :realWorld :w2)
+ObjectPropertyAssertion(:accessible :realWorld :w3)
+
+# Individual: :w1 (:w1)
+
+ClassAssertion(:Gamble :w1)
+ClassAssertion(:Pay_Taxes :w1)
+ClassAssertion(:World :w1)
+
+# Individual: :w2 (:w2)
+
+ClassAssertion(:Pay_Taxes :w2)
+ClassAssertion(:World :w2)
+
+# Individual: :w3 (:w3)
+
+ClassAssertion(:Pay_Taxes :w3)
+ClassAssertion(:World :w3)
+
+
+SubObjectPropertyOf(ObjectPropertyChain(:accessible :accessible) :doubleAccessible)
+)
