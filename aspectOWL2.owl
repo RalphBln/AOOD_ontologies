@@ -1,4 +1,5 @@
 Prefix(:=<http://www.corporate-semantic-web.de/ontologies/aspect/owl#>)
+Prefix(asp:=<http://www.corporate-semantic-web.de/ontologies/aspect/owl#>)
 Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
 Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
 Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
@@ -8,46 +9,51 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 Ontology(<http://www.corporate-semantic-web.de/ontologies/aspect/owl>
 
-Declaration(Class(:Aspect))
-Declaration(Class(:Pointcut))
-Declaration(Class(:PossibleWorld))
-Declaration(ObjectProperty(:accessible))
-Declaration(DataProperty(:hasQuery))
-Declaration(AnnotationProperty(:hasAspect))
-Declaration(AnnotationProperty(:hasPointcut))
+Declaration(Class(asp:Aspect))
+Declaration(Class(asp:DLQueryPointcut))
+Declaration(Class(asp:ModulePointcut))
+Declaration(Class(asp:Pointcut))
+Declaration(Class(asp:PossibleWorld))
+Declaration(Class(asp:SPARQLPointcut))
+Declaration(ObjectProperty(asp:accessible))
+Declaration(DataProperty(asp:hasQuery))
+Declaration(AnnotationProperty(asp:hasAdvice))
+Declaration(AnnotationProperty(asp:hasAspect))
+Declaration(AnnotationProperty(asp:hasPointcut))
+Declaration(AnnotationProperty(asp:hasQuery))
 ############################
 #   Annotation Properties
 ############################
 
-# Annotation Property: :hasAspect (:hasAspect)
+# Annotation Property: asp:hasAspect (asp:hasAspect)
 
-AnnotationPropertyRange(:hasAspect :Aspect)
+AnnotationPropertyRange(asp:hasAspect asp:Aspect)
 
-# Annotation Property: :hasPointcut (:hasPointcut)
+# Annotation Property: asp:hasQuery (asp:hasQuery)
 
-AnnotationPropertyRange(:hasPointcut :Pointcut)
-AnnotationPropertyDomain(:hasPointcut <http://www.corporate-semantic-web.de/ontologies/aspect/owl>)
+AnnotationPropertyRange(asp:hasQuery xsd:string)
+AnnotationPropertyDomain(asp:hasQuery asp:SPARQLPointcut)
 
 
 ############################
 #   Object Properties
 ############################
 
-# Object Property: :accessible (:accessible)
+# Object Property: asp:accessible (asp:accessible)
 
-AnnotationAssertion(rdfs:comment :accessible "Subproperties of this property may be created and used to represent accessibility relations between possible worlds. The characteristics of the subproperties determine the underlying modal logic.")
-ObjectPropertyDomain(:accessible :PossibleWorld)
-ObjectPropertyRange(:accessible :PossibleWorld)
+AnnotationAssertion(rdfs:comment asp:accessible "Subproperties of this property may be created and used to represent accessibility relations between possible worlds. The characteristics of the subproperties determine the underlying modal logic.")
+ObjectPropertyDomain(asp:accessible asp:PossibleWorld)
+ObjectPropertyRange(asp:accessible asp:PossibleWorld)
 
 
 ############################
 #   Data Properties
 ############################
 
-# Data Property: :hasQuery (:hasQuery)
+# Data Property: asp:hasQuery (asp:hasQuery)
 
-DataPropertyDomain(:hasQuery :Pointcut)
-DataPropertyRange(:hasQuery rdfs:Literal)
+DataPropertyDomain(asp:hasQuery asp:Pointcut)
+DataPropertyRange(asp:hasQuery rdfs:Literal)
 
 
 
@@ -55,12 +61,24 @@ DataPropertyRange(:hasQuery rdfs:Literal)
 #   Classes
 ############################
 
-# Class: :Aspect (:Aspect)
+# Class: asp:Aspect (asp:Aspect)
 
-AnnotationAssertion(rdfs:comment :Aspect "Subclasses of this class represent aspects. An aspect is a truth valuation that is assigned to a part of an ontology (a set of axioms) and describes the conditions under which the part of the ontology is relevant or, in other words, provides a formal description of a validity context.
+AnnotationAssertion(rdfs:comment asp:Aspect "Subclasses of this class represent aspects. An aspect is a truth valuation that is assigned to a part of an ontology (a set of axioms) and describes the conditions under which the part of the ontology is relevant or, in other words, provides a formal description of a validity context.
 
 Using the equivalence of modal logic and DLs, the propositional truth valuation that may or may not be true in possible worlds is reprented by this class (or its subclasses). Whether or not a proposition is true in a particular world depends on whether the world individual is an instance of the class representing the proposition. Hence the equivalence relation between Aspect and PossibleWorld.")
-EquivalentClasses(:Aspect :PossibleWorld)
+EquivalentClasses(asp:Aspect asp:PossibleWorld)
+
+# Class: asp:DLQueryPointcut (asp:DLQueryPointcut)
+
+SubClassOf(asp:DLQueryPointcut asp:Pointcut)
+
+# Class: asp:ModulePointcut (asp:ModulePointcut)
+
+SubClassOf(asp:ModulePointcut asp:Pointcut)
+
+# Class: asp:SPARQLPointcut (asp:SPARQLPointcut)
+
+SubClassOf(asp:SPARQLPointcut asp:Pointcut)
 
 
 )

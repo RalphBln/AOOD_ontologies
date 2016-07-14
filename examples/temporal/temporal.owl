@@ -1,0 +1,267 @@
+Prefix(:=<http://www.corporate-semantic-web.de/ontologies/aood/temporalexample#>)
+Prefix(asp:=<http://www.corporate-semantic-web.de/ontologies/aspect/owl#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(time:=<http://www.w3.org/2006/time#>)
+
+
+Ontology(<http://www.corporate-semantic-web.de/ontologies/aood/temporalexample>
+Import(<http://www.w3.org/2006/time>)
+Import(<http://www.corporate-semantic-web.de/ontologies/aspect/owl>)
+
+Declaration(Class(:Angela_Merkel_Chancellorship))
+Declaration(Class(:Capital))
+Declaration(Class(:Chancellor))
+Declaration(Class(:City))
+Declaration(Class(:Country))
+Declaration(Class(:Gerhard_Schröder_Chancellorship))
+Declaration(Class(:Helmut_Kohl_Chancellorship))
+Declaration(Class(:Helmut_Schmidt_Chancellorship))
+Declaration(Class(:Konrad_Adenauer_Chancellorship))
+Declaration(Class(:Kurt_Georg_Kiesinger_Chancellorship))
+Declaration(Class(:Ludwig_Erhard_Chancellorship))
+Declaration(Class(:PostGermanReunification))
+Declaration(Class(:PostWW2PreGermanReunification))
+Declaration(Class(:TemporalAspect))
+Declaration(Class(:Walter_Scheel_Chancellorship))
+Declaration(Class(:Willy_Brandt_Chancellorship))
+Declaration(ObjectProperty(:capitalOf))
+Declaration(ObjectProperty(:hasCapital))
+Declaration(ObjectProperty(:hasChancellor))
+Declaration(NamedIndividual(:Angela_Merkel))
+Declaration(NamedIndividual(:Berlin))
+Declaration(NamedIndividual(:Bonn))
+Declaration(NamedIndividual(:Gerhard_Schröder))
+Declaration(NamedIndividual(:Germany))
+Declaration(NamedIndividual(:Helmut_Kohl))
+Declaration(NamedIndividual(:Helmut_Schmidt))
+Declaration(NamedIndividual(:I1949-09-15))
+Declaration(NamedIndividual(:I1949-11-03))
+Declaration(NamedIndividual(:I1963-10-16))
+Declaration(NamedIndividual(:I1966-12-01))
+Declaration(NamedIndividual(:I1969-10-21))
+Declaration(NamedIndividual(:I1974-05-07))
+Declaration(NamedIndividual(:I1974-05-16))
+Declaration(NamedIndividual(:I1982-10-01))
+Declaration(NamedIndividual(:I1990-10-03))
+Declaration(NamedIndividual(:I1998-10-27))
+Declaration(NamedIndividual(:I2005-11-22))
+Declaration(NamedIndividual(:Konrad_Adenauer))
+Declaration(NamedIndividual(:Kurt_Georg_Kiesinger))
+Declaration(NamedIndividual(:Ludwig_Erhard))
+Declaration(NamedIndividual(:Walter_Scheel))
+Declaration(NamedIndividual(:Willy_Brandt))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :capitalOf (:capitalOf)
+
+InverseObjectProperties(:capitalOf :hasCapital)
+
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :Angela_Merkel_Chancellorship (:Angela_Merkel_Chancellorship)
+
+EquivalentClasses(:Angela_Merkel_Chancellorship ObjectUnionOf(ObjectOneOf(:I2005-11-22) ObjectHasValue(time:after :I2005-11-22)))
+SubClassOf(:Angela_Merkel_Chancellorship :TemporalAspect)
+
+# Class: :Capital (:Capital)
+
+EquivalentClasses(:Capital ObjectSomeValuesFrom(:capitalOf :Country))
+SubClassOf(:Capital :City)
+
+# Class: :Gerhard_Schröder_Chancellorship (:Gerhard_Schröder_Chancellorship)
+
+EquivalentClasses(:Gerhard_Schröder_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1998-10-27) ObjectHasValue(time:before :I2005-11-22)) ObjectOneOf(:I1998-10-27)))
+SubClassOf(:Gerhard_Schröder_Chancellorship :TemporalAspect)
+
+# Class: :Helmut_Kohl_Chancellorship (:Helmut_Kohl_Chancellorship)
+
+EquivalentClasses(:Helmut_Kohl_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1982-10-01) ObjectHasValue(time:before :I1998-10-27)) ObjectOneOf(:I1982-10-01)))
+SubClassOf(:Helmut_Kohl_Chancellorship :TemporalAspect)
+
+# Class: :Helmut_Schmidt_Chancellorship (:Helmut_Schmidt_Chancellorship)
+
+EquivalentClasses(:Helmut_Schmidt_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1974-05-16) ObjectHasValue(time:before :I1982-10-01)) ObjectOneOf(:I1974-05-16)))
+SubClassOf(:Helmut_Schmidt_Chancellorship :TemporalAspect)
+
+# Class: :Konrad_Adenauer_Chancellorship (:Konrad_Adenauer_Chancellorship)
+
+EquivalentClasses(:Konrad_Adenauer_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1949-09-15) ObjectHasValue(time:before :I1963-10-16)) ObjectOneOf(:I1949-09-15)))
+SubClassOf(:Konrad_Adenauer_Chancellorship :TemporalAspect)
+
+# Class: :Kurt_Georg_Kiesinger_Chancellorship (:Kurt_Georg_Kiesinger_Chancellorship)
+
+EquivalentClasses(:Kurt_Georg_Kiesinger_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1966-12-01) ObjectHasValue(time:before :I1969-10-21)) ObjectOneOf(:I1966-12-01)))
+SubClassOf(:Kurt_Georg_Kiesinger_Chancellorship :TemporalAspect)
+
+# Class: :Ludwig_Erhard_Chancellorship (:Ludwig_Erhard_Chancellorship)
+
+EquivalentClasses(:Ludwig_Erhard_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1963-10-16) ObjectHasValue(time:before :I1966-12-01)) ObjectOneOf(:I1963-10-16)))
+SubClassOf(:Ludwig_Erhard_Chancellorship :TemporalAspect)
+
+# Class: :PostGermanReunification (:PostGermanReunification)
+
+EquivalentClasses(:PostGermanReunification ObjectUnionOf(ObjectOneOf(:I1990-10-03) ObjectHasValue(time:after :I1990-10-03)))
+SubClassOf(:PostGermanReunification :TemporalAspect)
+
+# Class: :PostWW2PreGermanReunification (:PostWW2PreGermanReunification)
+
+EquivalentClasses(:PostWW2PreGermanReunification ObjectIntersectionOf(ObjectUnionOf(ObjectOneOf(:I1949-11-03) ObjectHasValue(time:after :I1949-11-03)) ObjectHasValue(time:before :I1990-10-03)))
+SubClassOf(:PostWW2PreGermanReunification :TemporalAspect)
+
+# Class: :TemporalAspect (:TemporalAspect)
+
+SubClassOf(:TemporalAspect asp:Aspect)
+
+# Class: :Walter_Scheel_Chancellorship (:Walter_Scheel_Chancellorship)
+
+EquivalentClasses(:Walter_Scheel_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1974-05-07) ObjectHasValue(time:before :I1974-05-16)) ObjectOneOf(:I1974-05-07)))
+SubClassOf(:Walter_Scheel_Chancellorship :TemporalAspect)
+
+# Class: :Willy_Brandt_Chancellorship (:Willy_Brandt_Chancellorship)
+
+EquivalentClasses(:Willy_Brandt_Chancellorship ObjectUnionOf(ObjectIntersectionOf(ObjectHasValue(time:after :I1969-10-21) ObjectHasValue(time:before :I1974-05-07)) ObjectOneOf(:I1969-10-21)))
+SubClassOf(:Willy_Brandt_Chancellorship :TemporalAspect)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :Angela_Merkel (:Angela_Merkel)
+
+ClassAssertion(:Chancellor :Angela_Merkel)
+
+# Individual: :Berlin (:Berlin)
+
+ClassAssertion(:City :Berlin)
+
+# Individual: :Bonn (:Bonn)
+
+ClassAssertion(:City :Bonn)
+
+# Individual: :Gerhard_Schröder (:Gerhard_Schröder)
+
+ClassAssertion(:Chancellor :Gerhard_Schröder)
+
+# Individual: :Germany (:Germany)
+
+ClassAssertion(:Country :Germany)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :PostGermanReunification) :hasCapital :Germany :Berlin)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :PostWW2PreGermanReunification) :hasCapital :Germany :Bonn)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Angela_Merkel_Chancellorship) :hasChancellor :Germany :Angela_Merkel)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Gerhard_Schröder_Chancellorship) :hasChancellor :Germany :Gerhard_Schröder)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Helmut_Kohl_Chancellorship) :hasChancellor :Germany :Helmut_Kohl)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Helmut_Schmidt_Chancellorship) :hasChancellor :Germany :Helmut_Schmidt)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Konrad_Adenauer_Chancellorship) :hasChancellor :Germany :Konrad_Adenauer)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Kurt_Georg_Kiesinger_Chancellorship) :hasChancellor :Germany :Kurt_Georg_Kiesinger)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Ludwig_Erhard_Chancellorship) :hasChancellor :Germany :Ludwig_Erhard)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Walter_Scheel_Chancellorship) :hasChancellor :Germany :Walter_Scheel)
+ObjectPropertyAssertion(Annotation(asp:hasAspect :Willy_Brandt_Chancellorship) :hasChancellor :Germany :Willy_Brandt)
+
+# Individual: :Helmut_Kohl (:Helmut_Kohl)
+
+ClassAssertion(:Chancellor :Helmut_Kohl)
+
+# Individual: :Helmut_Schmidt (:Helmut_Schmidt)
+
+ClassAssertion(:Chancellor :Helmut_Schmidt)
+
+# Individual: :I1949-09-15 (:I1949-09-15)
+
+ClassAssertion(time:Instant :I1949-09-15)
+DataPropertyAssertion(time:inXSDDateTime :I1949-09-15 "1949-09-15T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1949-11-03 (:I1949-11-03)
+
+ClassAssertion(time:Instant :I1949-11-03)
+ObjectPropertyAssertion(time:after :I1949-11-03 :I1949-09-15)
+DataPropertyAssertion(time:inXSDDateTime :I1949-11-03 "1949-11-03T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1963-10-16 (:I1963-10-16)
+
+ClassAssertion(time:Instant :I1963-10-16)
+ObjectPropertyAssertion(time:after :I1963-10-16 :I1949-11-03)
+DataPropertyAssertion(time:inXSDDateTime :I1963-10-16 "1963-10-16T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1966-12-01 (:I1966-12-01)
+
+ClassAssertion(time:Instant :I1966-12-01)
+ObjectPropertyAssertion(time:after :I1966-12-01 :I1963-10-16)
+DataPropertyAssertion(time:inXSDDateTime :I1966-12-01 "1966-12-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1969-10-21 (:I1969-10-21)
+
+ClassAssertion(time:Instant :I1969-10-21)
+ObjectPropertyAssertion(time:after :I1969-10-21 :I1966-12-01)
+DataPropertyAssertion(time:inXSDDateTime :I1969-10-21 "1969-10-21T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1974-05-07 (:I1974-05-07)
+
+ClassAssertion(time:Instant :I1974-05-07)
+ObjectPropertyAssertion(time:after :I1974-05-07 :I1969-10-21)
+DataPropertyAssertion(time:inXSDDateTime :I1974-05-07 "1974-05-07T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1974-05-16 (:I1974-05-16)
+
+ClassAssertion(time:Instant :I1974-05-16)
+ObjectPropertyAssertion(time:after :I1974-05-16 :I1974-05-07)
+DataPropertyAssertion(time:inXSDDateTime :I1974-05-16 "1974-05-16T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1982-10-01 (:I1982-10-01)
+
+ClassAssertion(time:Instant :I1982-10-01)
+ObjectPropertyAssertion(time:after :I1982-10-01 :I1974-05-16)
+DataPropertyAssertion(time:inXSDDateTime :I1982-10-01 "1982-10-01T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1990-10-03 (:I1990-10-03)
+
+ClassAssertion(time:Instant :I1990-10-03)
+ObjectPropertyAssertion(time:after :I1990-10-03 :I1982-10-01)
+DataPropertyAssertion(time:inXSDDateTime :I1990-10-03 "1990-10-03T00:00:00"^^xsd:dateTime)
+
+# Individual: :I1998-10-27 (:I1998-10-27)
+
+ClassAssertion(time:Instant :I1998-10-27)
+ObjectPropertyAssertion(time:after :I1998-10-27 :I1990-10-03)
+DataPropertyAssertion(time:inXSDDateTime :I1998-10-27 "1998-10-27T00:00:00"^^xsd:dateTime)
+
+# Individual: :I2005-11-22 (:I2005-11-22)
+
+ClassAssertion(time:Instant :I2005-11-22)
+ObjectPropertyAssertion(time:after :I2005-11-22 :I1998-10-27)
+DataPropertyAssertion(time:inXSDDateTime :I2005-11-22 "2005-11-22T00:00:00"^^xsd:dateTime)
+
+# Individual: :Konrad_Adenauer (:Konrad_Adenauer)
+
+ClassAssertion(:Chancellor :Konrad_Adenauer)
+
+# Individual: :Kurt_Georg_Kiesinger (:Kurt_Georg_Kiesinger)
+
+ClassAssertion(:Chancellor :Kurt_Georg_Kiesinger)
+
+# Individual: :Ludwig_Erhard (:Ludwig_Erhard)
+
+ClassAssertion(:Chancellor :Ludwig_Erhard)
+
+# Individual: :Walter_Scheel (:Walter_Scheel)
+
+ClassAssertion(:Chancellor :Walter_Scheel)
+
+# Individual: :Willy_Brandt (:Willy_Brandt)
+
+ClassAssertion(:Chancellor :Willy_Brandt)
+
+
+)
