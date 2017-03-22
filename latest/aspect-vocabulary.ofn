@@ -1,0 +1,73 @@
+Prefix(:=<http://www.corporate-semantic-web.de/ontologies/aspect-vocabulary#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.corporate-semantic-web.de/ontologies/aspect-vocabulary>
+Import(<http://www.w3.org/2004/02/skos/core>)
+
+Declaration(Class(:Advice))
+Declaration(Class(:AdviceType))
+Declaration(Class(:Aspect))
+Declaration(Class(:JoinPoint))
+Declaration(Class(:Pointcut))
+Declaration(NamedIndividual(:Binary_with_Composed))
+Declaration(NamedIndividual(:Binary_with_Ordered))
+Declaration(NamedIndividual(:N-Ary))
+Declaration(NamedIndividual(:Qualified_Binary))
+
+
+############################
+#   Classes
+############################
+
+# Class: :AdviceType (:AdviceType)
+
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :AdviceType "The advice type defines the semantics and the ontological commitment behind the relation between an advice and its target join points.
+
+There are four different advice types:
+
+1. N-Ary. The relation between an aspect's pointcut and its advice is a true n-ary relation, i.e., 
+2. Qualified binary. If applied to a binary relation, then the advice qualifies the relation (e.g. provides additional context, such as temporal context or an agent's point of view).
+3. Binary with Composed. The"@en)
+EquivalentClasses(:AdviceType ObjectOneOf(:Binary_with_Composed :Binary_with_Ordered :N-Ary :Qualified_Binary))
+
+# Class: :Aspect (:Aspect)
+
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :Aspect "An aspect is a unit of modularity, encapsulation, and abstraction. It is the combination of a pointcut (i.e., a set of join points) and an advice."@en)
+
+# Class: :JoinPoint (:JoinPoint)
+
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :JoinPoint "Join points are those elements of the component language semantics that the aspect programs coordinate with."@en)
+
+# Class: :Pointcut (:Pointcut)
+
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :Pointcut "A pointcut is a set of join points, which determine whether advice needs to be applied or not. Pointcuts may be defined using expressions that are matched with join points."@en)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :Binary_with_Composed (:Binary_with_Composed)
+
+ClassAssertion(:AdviceType :Binary_with_Composed)
+
+# Individual: :Binary_with_Ordered (:Binary_with_Ordered)
+
+ClassAssertion(:AdviceType :Binary_with_Ordered)
+
+# Individual: :N-Ary (:N-Ary)
+
+ClassAssertion(:AdviceType :N-Ary)
+
+# Individual: :Qualified_Binary (:Qualified_Binary)
+
+ClassAssertion(:AdviceType :Qualified_Binary)
+
+
+DifferentIndividuals(:Binary_with_Composed :Binary_with_Ordered :N-Ary :Qualified_Binary)
+)
